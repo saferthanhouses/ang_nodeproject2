@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="myApp">
 <head>
 	<title>Project 2: Post and Factories</title>
 	<meta charset="utf-8">
@@ -7,16 +7,26 @@
 	<script src="scripts/angular.min.js"></script>
 	<script src="scripts/angular-route.js"></script>
 	<link rel="stylesheet" href="scripts/bootstrap.css">
+	<link rel="stylesheet" href="style.css">
 	<script src="app.js"></script>
 	<script src="controller.js"></script>
 	<script src="factory.js"></script>
 </head>
 <body>
-	lorem ipsur
-
+	
 	<!-- fixed menu bar -->
+	<div class="menu">
+		<!-- better to do this with? flex-box? -->
+		<table class="table_1"> 
+			<!-- <tr>
+				<th>Something</th>
+
+			</tr>-->
+		</table>
+	</div>
 
 	<!-- view loader -->
+	<div ng-view></div>
 
 	<!-- colophon -->
 

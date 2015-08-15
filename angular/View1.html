@@ -1,0 +1,12 @@
+<div class="container myContainer">
+	<form name="myForm" ng-submit="submitPost()">
+		<input type="text" name="sanity" ng-model="sanity"/>
+		<input type="submit" />
+	</form>
+	<ul>
+		<li ng-repeat="post in myPosts | filter:sanity">{{ post }}</li>
+	</ul>
+		<!-- 	<table class="table_2">
+				<tr ng-repeat="post in myPosts"><td>{{ post }}</td></tr>
+		 	</table>-->
+</div>

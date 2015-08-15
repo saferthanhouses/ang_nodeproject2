@@ -1,0 +1,34 @@
+.myContainer {
+	position: relative;
+	top:30px;
+}
+
+input.ng-pristine {
+	font-style: italic;
+}
+
+.menu {
+	/*padding: 10px;*/
+	height: 30px;
+	border-bottom: 1px solid	;
+	position: fixed;
+	width: 100%;
+	top: 0px;
+}
+
+.table_1 {
+	position: relative;
+}
+
+.table_2 {
+	position: relative;
+	top: 20px;
+	border: solid 2px;
+}
+tr {
+	border: solid 1px;
+}
+
+td{
+	 padding: 4px;
+}
