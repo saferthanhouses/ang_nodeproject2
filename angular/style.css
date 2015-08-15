@@ -32,3 +32,12 @@ tr {
 td{
 	 padding: 4px;
 }
+
+.title {
+	font-weight: 900;
+}
+
+.entry {
+	position: relative;
+	left: 30px;
+}

@@ -1,11 +1,21 @@
 <div class="container myContainer">
+	Search Posts:
 	<form name="myForm" ng-submit="submitPost()">
-		<input type="text" name="sanity" ng-model="sanity"/>
-		<input type="submit" />
+		<input type="text" name="postTitle" ng-model="postTitle"/>
 	</form>
 	<ul>
-		<li ng-repeat="post in myPosts | filter:sanity">{{ post }}</li>
+		<div class="postItem" ng-repeat="post in myPosts | filter:postTitle">
+			<li class="title">{{ post.title }}</li>
+			<li class="entry">{{ post.entry }}</li>
+		</div>
 	</ul>
+	<form name="newPost" ng-submit="submitPost()">
+		Post Title:<br />
+		<input type="text" ng-model="newPostTitle" /><br />
+		Post:<br />
+		<input type="text" ng-model="newPostEntry" /><br />
+		<input type="submit" ng-click="newPostEntry=null; newPostTitle=null" />
+	</form>
 		<!-- 	<table class="table_2">
 				<tr ng-repeat="post in myPosts"><td>{{ post }}</td></tr>
 		 	</table>-->
