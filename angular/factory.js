@@ -11,6 +11,7 @@ myApp.factory('myFactory', ['$http', function($http) {
 	}
 
 	factory.uploadPost = function(post) {
+		// console.log(post)
 		return $http.post(urlBase, post);
 	}
 

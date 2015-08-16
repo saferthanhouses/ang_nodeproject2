@@ -14,19 +14,24 @@ myApp.controller('myController', function($scope, myFactory){
 	}	
 
 	// new post box initial text & input
-	$scope.post = "Type something here..."
+	$scope.newPostTitle = "Post Title here ..."
+	$scope.newPostEntry = "Type something here..."
 
 	$scope.submitPost = function() { 
 		$scope.newPost = {
 		"title": $scope.newPostTitle,
 		"entry": $scope.newPostEntry
 		};
-		myFactory.uploadPost($scope.newPost)
-			.then(function(response){ finishUploadPost() });
+		// $scope.myPosts.push($scope.newPost);
+		myFactory.uploadPost(JSON.stringify($scope.newPost))
+			.then(function(response){ finishUploadPost() })
+				  // function(response){ console.log("error")});
 	};
 
 	function finishUploadPost() {
-		$scope.myPosts.push($scope.new_post);
+		// console.log($scope.myPosts);
+		$scope.myPosts.push($scope.newPost);
+		console.log($scope.myPosts);
 	}
 			// .then(function($scope.myPosts),
 			// 	   function(console.log("error"))
