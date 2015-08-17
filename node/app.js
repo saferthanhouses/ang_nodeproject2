@@ -1,15 +1,7 @@
 var http = require('http');
 var url = require('url');
 
-var server = http.createServer(function(req, res) {
-	// best practice: if POST request or GET request routing?
-	// TODO : serve.
-	// console.log(req.method);
-/*
-res.header('Access-Control-Allow-Origin', 'example.com');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-*/	
+var server = http.createServer(function(req, res) {	
 	
 	//CORS STUFF
 	res.setHeader('Access-Control-Allow-Origin', '*');
@@ -19,7 +11,7 @@ res.header('Access-Control-Allow-Origin', 'example.com');
 	
 	if (req.method == "GET") {
 		console.log("served posts");
-		return res.end(posts.getPosts());	
+		res.end(posts.getPosts());	
 	}
 	else if (req.method == "OPTIONS") { // what is the options request?
 		console.log("got OPTIONS request???") // why is it not a post request
@@ -31,7 +23,7 @@ res.header('Access-Control-Allow-Origin', 'example.com');
 		res.end("post received");
 		// return res.end("done");
 	}
-	else {
+	else if (req.method =="POST") {
 		console.log("Got a " + req.method + " request")
 		req.setEncoding('utf8');
 		req.on('data', function(data) { posts.addPost(data) });
@@ -40,9 +32,10 @@ res.header('Access-Control-Allow-Origin', 'example.com');
 })
 
 var posts = {
-	p : [{"title":"Tue", "entry": "read harry potter today"}, 
-				{"title": "Mon", "entry": "watched apocalypse now"},
-				{"title": "Wed", "entry": "made a paella"}],
+	// p : [{"title":"Tue", "entry": "read harry potter today"}, 
+	// 			{"title": "Mon", "entry": "watched apocalypse now"},
+	// 			{"title": "Wed", "entry": "made a paella"}],
+	p : [],
 	getPosts : function() { return JSON.stringify(this.p) },
 	addPost : function(post) { this.p.push(JSON.parse(post)) }
 }
